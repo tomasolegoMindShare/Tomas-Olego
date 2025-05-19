@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 logger = logging.getLogger(__name__)
 
 # Define paths from environment variables (cannot change existing env vars)
-DATA_PATH     = Path("/mnt/data") / os.environ.get("DOMINO_PROJECT_NAME", "") / "WineQualityData.csv"
+DATA_PATH     = Path("/mnt/data/Winequality-Workshop/WineQualityData.csv")
 ARTIFACTS_DIR = Path("/mnt/artifacts")
 MODEL_DIR     = Path("/mnt/code/models")
 
@@ -183,7 +183,7 @@ with mlflow.start_run() as run:
 
     # — 6️⃣ Register the PyFunc flavor in the registry (outside the run, if you like) —
     pyfunc_uri = f"runs:/{run.info.run_id}/wine_quality_pyfunc"
-    model_name = os.environ.get("MLFLOW_MODEL_NAME", "WineQualityModel")
+    model_name = os.environ.get("tomas-olego", "WineQualityModel")
     mlflow.register_model(pyfunc_uri, model_name)
 
 # when this `with` block exits, MLflow will automatically end the run.
