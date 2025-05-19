@@ -183,7 +183,7 @@ with mlflow.start_run() as run:
 
     # — 6️⃣ Register the PyFunc flavor in the registry (outside the run, if you like) —
     pyfunc_uri = f"runs:/{run.info.run_id}/wine_quality_pyfunc"
-    model_name = os.environ.get("tomas-olego", "WineQualityModel")
+    model_name = os.environ.get("Tomas-Olego", "WineQualityModel")
     mlflow.register_model(pyfunc_uri, model_name)
 
 # when this `with` block exits, MLflow will automatically end the run.
